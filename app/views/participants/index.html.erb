@@ -1,33 +1,35 @@
-<h1>Listing participants</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Arrival</th>
-    <th>Bingo</th>
-    <th>Party</th>
-    <th>Occupation</th>
-    <th>Remarks</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @participants.each do |participant| %>
-  <tr>
-    <td><%= participant.name %></td>
-    <td><%= participant.arrival %></td>
-    <td><%= participant.BINGO %></td>
-    <td><%= participant.party %></td>
-    <td><%= participant.occupation %></td>
-    <td><%= participant.remarks %></td>
-    <td><%= link_to 'Show', participant %></td>
-    <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
-    <td><%= link_to 'Destroy', participant, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<h1>参加予定者一覧</h1>
+<div class="row">
+  <div class="span6">
+  <h2>学生</h2>
+  <table>
+    <tr>
+      <th>Arrival</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.arrived? %></td>
+        <td><%= link_to student.name, edit_participant_path(student) %></td>
+        <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <h2>社会人</h2>
+  <table>
+    <tr>
+      <th>Arrival</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @workers.each do |worker| %>
+      <tr>
+        <td><%= worker.arrived? %></td>
+        <td><%= link_to worker.name, edit_participant_path(student) %></td>
+        <td><%= link_to 'Destroy', worker, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
 <%= link_to 'New Participant', new_participant_path %>
