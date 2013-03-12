@@ -17,19 +17,23 @@
   </div>
   <div class="field">
     <%= f.label :arrival %><br />
-    <%= f.number_field :arrival %>
+	<%= f.radio_button :arrival, "0" %> 不参加
+	<%= f.radio_button :arrival, "1" %> 参加
   </div>
   <div class="field">
     <%= f.label :BINGO %><br />
-    <%= f.number_field :BINGO %>
+	<%= f.radio_button :BINGO, "0" %> 不参加
+	<%= f.radio_button :BINGO, "1" %> 参加
   </div>
   <div class="field">
     <%= f.label :party %><br />
-    <%= f.number_field :party %>
+	<%= f.radio_button :party, "0" %> 不参加
+	<%= f.radio_button :party, "1" %> 参加
   </div>
   <div class="field">
     <%= f.label :occupation %><br />
-    <%= f.number_field :occupation %>
+	<%= f.radio_button :occupation, "0" %> 学生
+	<%= f.radio_button :occupation, "1" %> 社会人
   </div>
   <div class="field">
     <%= f.label :remarks %><br />
