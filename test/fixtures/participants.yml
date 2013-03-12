@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  arrival: 1
+  BINGO: 1
+  party: 1
+  occupation: 1
+  remarks: MyText
+
+two:
+  name: MyString
+  arrival: 1
+  BINGO: 1
+  party: 1
+  occupation: 1
+  remarks: MyText
