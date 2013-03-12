@@ -7,4 +7,17 @@ class Participant < ActiveRecord::Base
 		Arrival::YET => "KITENAI",
 		Arrival::ARRIVED => "KITERU"
 	}
+
+	module Occupation; end
+	Occupation::STUDENT = 0
+	Occupation::WORKER = 1
+
+	OCCUPATION_NAME = {
+    Occupation::STUDENT => "student",
+    Occupation::WORKER => "worker"
+	}
+
+  def arrived?
+    ARRIVAL_NAME[arrival]
+  end
 end

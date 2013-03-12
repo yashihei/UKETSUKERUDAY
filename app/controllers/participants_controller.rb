@@ -4,6 +4,9 @@ class ParticipantsController < ApplicationController
   def index
     @participants = Participant.all
 
+    @students = Participant.where(occupation: Participant::Occupation::STUDENT)
+    @workers = Participant.where(occupation: Participant::Occupation::WORKER)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @participants }
