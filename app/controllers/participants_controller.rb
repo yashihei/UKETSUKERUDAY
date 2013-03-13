@@ -6,6 +6,8 @@ class ParticipantsController < ApplicationController
 
     @students = Participant.where(occupation: Participant::Occupation::STUDENT)
     @workers = Participant.where(occupation: Participant::Occupation::WORKER)
+    @arrived = Participant.where(arrival: Participant::Arrival::ARRIVED).count
+    @notyet = Participant.where(arrival: Participant::Arrival::YET).count
 
     respond_to do |format|
       format.html # index.html.erb
