@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label '名前' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :arrival %><br />
-	<%= f.radio_button :arrival, "0" %> 不参加
-	<%= f.radio_button :arrival, "1" %> 参加
+    <%= f.label '来た？' %><br />
+	<%= f.radio_button :arrival, "0" %> 来てない
+	<%= f.radio_button :arrival, "1" %> 来た
   </div>
   <div class="field">
-    <%= f.label :BINGO %><br />
+    <%= f.label '懇親会' %><br />
 	<%= f.radio_button :BINGO, "0" %> 不参加
 	<%= f.radio_button :BINGO, "1" %> 参加
   </div>
   <div class="field">
-    <%= f.label :party %><br />
+    <%= f.label '二次会' %><br />
 	<%= f.radio_button :party, "0" %> 不参加
 	<%= f.radio_button :party, "1" %> 参加
   </div>
   <div class="field">
-    <%= f.label :occupation %><br />
+    <%= f.label '職業' %><br />
 	<%= f.radio_button :occupation, "0" %> 学生
 	<%= f.radio_button :occupation, "1" %> 社会人
   </div>
   <div class="field">
-    <%= f.label :remarks %><br />
-    <%= f.text_area :remarks %>
+    <%= f.label '備考' %><br />
+    <%= f.text_area :remarks, :size=>"50x3" %>
   </div>
   <div class="actions">
     <%= f.submit %>
