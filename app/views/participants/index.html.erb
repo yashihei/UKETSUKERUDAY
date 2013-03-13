@@ -9,11 +9,15 @@
       <th></th>
     </tr>
     <% @students.each do |student| %>
-      <tr>
-        <td><%= student.arrived? %></td>
-        <td><%= link_to student.name, edit_participant_path(student) %></td>
-        <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
+      <% if student.arrival == 0 %>
+        <tr class="yet">
+      <% else %>
+        <tr class="arrived">
+      <% end %>
+          <td><%= student.arrived? %></td>
+          <td><%= link_to student.name, edit_participant_path(student) %></td>
+          <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
     <% end %>
   </table>
   <br />
@@ -25,11 +29,15 @@
       <th></th>
     </tr>
     <% @workers.each do |worker| %>
-      <tr>
-        <td><%= worker.arrived? %></td>
-        <td><%= link_to worker.name, edit_participant_path(student) %></td>
-        <td><%= link_to 'Destroy', worker, confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
+      <% if worker.arrival == 0 %>
+        <tr class="yet">
+      <% else %>
+        <tr class="arrived">
+      <% end %>
+          <td><%= worker.arrived? %></td>
+          <td><%= link_to worker.name, edit_participant_path(worker) %></td>
+          <td><%= link_to 'Destroy', worker, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
     <% end %>
   </table>
 <%= link_to '参加者登録', new_participant_path %>
