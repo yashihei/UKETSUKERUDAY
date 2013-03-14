@@ -1,56 +1,49 @@
-<h1>参加予定者一覧</h1>
+<h1>カンファ本会参加予定者一覧</h1>
 <div class="row">
-  <div class="span6">
+  <div class="span12">
     <table>
       <tr>
         <th>きてます！</th>
-        <th>まだです！</th>
-        <th></th>
+        <th class="yet">まだです！</th>
       </tr>
       <tr>
         <th><%= @arrived %></th>
         <th><%= @notyet %></th>
       </tr>
     </table>
-  </div>
-  <div class="span6">
-  <h2>学生</h2>
-  <table>
-    <tr>
-      <th>Arrival</th>
-      <th>Name</th>
-      <th></th>
-    </tr>
-    <% @students.each do |student| %>
-      <% if student.arrival == 0 %>
-        <tr class="yet">
-      <% else %>
-        <tr class="arrived">
+    <%= link_to '参加者登録', new_participant_path %>
+    <h2>学生</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      <% @students.each do |student| %>
+        <% if student.arrival == 0 %>
+          <tr class="yet">
+        <% else %>
+          <tr class="arrived">
+        <% end %>
+            <td><%= link_to student.name, edit_participant_path(student) %></td>
+            <td><%= link_to 'delete', student, confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
       <% end %>
-          <td><%= student.arrived? %></td>
-          <td><%= link_to student.name, edit_participant_path(student) %></td>
-          <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-    <% end %>
-  </table>
-  <br />
-  <h2>社会人</h2>
-  <table>
-    <tr>
-      <th>Arrival</th>
-      <th>Name</th>
-      <th></th>
-    </tr>
-    <% @workers.each do |worker| %>
-      <% if worker.arrival == 0 %>
-        <tr class="yet">
-      <% else %>
-        <tr class="arrived">
+    </table>
+    <br />
+    <h2>社会人</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      <% @workers.each do |worker| %>
+        <% if worker.arrival == 0 %>
+          <tr class="yet">
+        <% else %>
+          <tr class="arrived">
+        <% end %>
+            <td><%= link_to worker.name, edit_participant_path(worker) %></td>
+            <td><%= link_to 'Destroy', worker, confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
       <% end %>
-          <td><%= worker.arrived? %></td>
-          <td><%= link_to worker.name, edit_participant_path(worker) %></td>
-          <td><%= link_to 'Destroy', worker, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-    <% end %>
-  </table>
-<%= link_to '参加者登録', new_participant_path %>
+    </table>
